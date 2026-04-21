@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRA | Frontend Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+    font-family:'Orbitron',sans-serif;
+    background:#0f0f0f;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== PARTICLES CANVAS ===== */
+#particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+nav a:hover{color:#ff6a00}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.hero h1{
+    font-size:50px;
+    color:#ff6a00;
+}
+.typing{
+    border-right:3px solid #ff6a00;
+    white-space:nowrap;
+    overflow:hidden;
+    animation:typing 3s steps(30,end), blink .7s infinite;
+}
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+@keyframes blink{
+    50%{border-color:transparent}
+}
+
+.btn{
+    margin-top:30px;
+    padding:12px 30px;
+    background:#ff6a00;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+.btn:hover{
+    background:#ffa000;
+    transform:scale(1.1);
+}
+
+.glow-text{
+    margin-top:20px;
+    font-size:18px;
+    color:#ff8c00;
+    text-shadow:
+        0 0 5px #ff6a00,
+        0 0 10px #ff6a00,
+        0 0 20px #ff4500,
+        0 0 40px #ff4500;
+    animation:pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow{
+    from{opacity:0.7;}
+    to{opacity:1;}
+}
+
+.fire-line{
+    position:absolute;
+    top:50%;
+    left:-100%;
+    width:200%;
+    height:4px;
+    background:linear-gradient(90deg, transparent, #ff6a00, #ff0000, transparent);
+    filter:blur(4px);
+    animation:fireMove 3s ease-out forwards;
+}
+
+@keyframes fireMove{
+    0%{left:-100%;}
+    100%{left:100%;}
+}
+
+/* ===== SECTIONS ===== */
+.section{
+    padding:100px 10%;
+}
+.section h2{
+    color:#ff6a00;
+    margin-bottom:30px;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+    display:grid;
+    gap:20px;
+}
+.skill-bar{
+    background:#1a1a1a;
+    padding:10px;
+}
+.skill-fill{
+    height:10px;
+    background:#ff6a00;
+    width:0;
+    transition:2s;
+}
+
+/* ===== PROJECTS ===== */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,106,0,0.3);
+    border-radius:15px;
+    padding:25px;
+    transition:0.4s;
+}
+.card:hover{
+    box-shadow:0 0 20px #ff6a00;
+    transform:translateY(-10px) scale(1.05);
+}
+
+
+/* ===== CONTACT ===== */
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-width:400px;
+}
+input,textarea{
+    padding:10px;
+    background:#1a1a1a;
+    border:none;
+    color:#fff;
+}
+input:focus,textarea:focus{
+    outline:2px solid #ff6a00;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#000;
+}
+.socials a{
+    margin:0 10px;
+    color:#ff6a00;
+    text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+    <h3 style="color:#ff6a00;">KIRA</h3>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="fire-line"></div>
+    <h1 class="typing">HI, I'M KIRA - FRONTEND DEVELOPER</h1>
+    <p class="glow-text">Frontend Developer
+Creating modern animated websites for businesses</p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
+</section>
+
+<section class="section" id="about">
+    <h2>About Me</h2>
+    <p>I 16 y.o, student Ispring. Animated and responsive websites using HTML, CSS & JavaScript. I focus on clean UI and smooth UX.</p>
+</section>
+
+<section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill-bar">HTML<div class="skill-fill" data-width="90%"></div></div>
+        <div class="skill-bar">CSS<div class="skill-fill" data-width="85%"></div></div>
+        <div class="skill-bar">JavaScript<div class="skill-fill" data-width="75%"></div></div>
+    </div>
+</section>
+
+<section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="card"><h3>Landing Page</h3><p>Animated modern landing.</p></div>
+        <div class="card"><h3>Portfolio</h3><p>Creative personal website.</p></div>
+        <div class="card"><h3>Shop UI</h3><p>Responsive e-commerce design.</p></div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <button class="btn">Send</button>
+</form>
+</section>
+
+<footer>
+    <div class="socials">
+        <a href="#">Telegram</a>
+        <a href="#">GitHub</a>
+    </div>
+    <p style="margin-top:10px;color:#555;">© 2026 KIRA</p>
+</footer>
+
+<script>
+    const TOKEN = "7999662691:AAH8CDoPFa5Za_vSoQdf50_cJ6WQYrYChFM";
+const CHAT_ID = "@Kimtrw_bot";
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const text = `
+🔥 Новая заявка с сайта KIRA
+
+👤 Имя: ${name}
+📧 Email: ${email}
+💬 Сообщение: ${message}
+`;
+
+    fetch(`https://api.telegram.org/bot${7999662691}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: text
+        })
+    })
+    .then(res => {
+        alert("Message sent 🚀");
+        document.getElementById("contactForm").reset();
+    })
+    .catch(err => alert("Error sending message"));
+});
+/* ===== SKILL ANIMATION ===== */
+window.addEventListener("scroll",()=>{
+    document.querySelectorAll(".skill-fill").forEach(bar=>{
+        let rect = bar.getBoundingClientRect().top;
+        if(rect < window.innerHeight){
+            bar.style.width = bar.dataset.width;
+        }
+    })
+})
+
+/* ===== PARTICLES ===== */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray=[];
+for(let i=0;i<100;i++){
+    particlesArray.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*2,
+        speedY:Math.random()*1
+    })
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p=>{
+        p.y += p.speedY;
+        if(p.y > canvas.height) p.y = 0;
+        ctx.fillStyle="#ff6a00";
+        ctx.fillRect(p.x,p.y,p.size,p.size);
+    })
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
